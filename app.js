@@ -2,42 +2,74 @@
 (function () {
   'use strict';
 
-  // --- Countdown to 30 abril 2026 23:59 -04:00 ---
+  // Central config — single source of truth for contact details
+  var CFG = {
+    whatsapp: '56934107448',
+    email: 'patricio.rojas@tumatchinmobiliario.cl',
+    launchDeadline: '2026-04-30T23:59:59-04:00',
+    preLaunchDeadline: '2026-05-30T23:59:59-04:00'
+  };
+
+  function pad(n) { return String(Math.max(0, n)).padStart(2, '0'); }
+
   function initCountdown() {
     var el = document.getElementById('countdown');
     if (!el) return;
-    var target = new Date('2026-04-30T23:59:59-04:00').getTime();
+    var target = new Date(CFG.launchDeadline).getTime();
+    var preTarget = new Date(CFG.preLaunchDeadline).getTime();
     var boxes = {
       d: el.querySelector('[data-d]'),
       h: el.querySelector('[data-h]'),
       m: el.querySelector('[data-m]'),
-      s: el.querySelector('[data-s]'),
+      s: el.querySelector('[data-s]')
     };
-    function pad(n) { return String(Math.max(0, n)).padStart(2, '0'); }
+    var caption = el.querySelector('[data-cd-caption]');
+    var timer = null;
+
     function tick() {
-      var diff = Math.max(0, target - Date.now());
-      var d = Math.floor(diff / 86400000);
-      var h = Math.floor((diff / 3600000) % 24);
-      var m = Math.floor((diff / 60000) % 60);
-      var s = Math.floor((diff / 1000) % 60);
-      if (boxes.d) boxes.d.textContent = pad(d);
-      if (boxes.h) boxes.h.textContent = pad(h);
-      if (boxes.m) boxes.m.textContent = pad(m);
-      if (boxes.s) boxes.s.textContent = pad(s);
+      var now = Date.now();
+      var diff = target - now;
+      if (diff <= 0) {
+        if (timer) { clearInterval(timer); timer = null; }
+        el.classList.add('is-expired');
+        // Switch to secondary deadline (pre-launch) until that passes
+        if (now < preTarget) {
+          var dd = preTarget - now;
+          if (boxes.d) boxes.d.textContent = pad(Math.floor(dd / 86400000));
+          if (boxes.h) boxes.h.textContent = pad(Math.floor((dd / 3600000) % 24));
+          if (boxes.m) boxes.m.textContent = pad(Math.floor((dd / 60000) % 60));
+          if (boxes.s) boxes.s.textContent = pad(Math.floor((dd / 1000) % 60));
+          if (caption) caption.textContent = 'para el cierre pre-lanzamiento (precio sube el 30 mayo)';
+          timer = setInterval(tick, 1000);
+        } else {
+          if (boxes.d) boxes.d.textContent = '00';
+          if (boxes.h) boxes.h.textContent = '00';
+          if (boxes.m) boxes.m.textContent = '00';
+          if (boxes.s) boxes.s.textContent = '00';
+          if (caption) caption.textContent = 'ventana de lanzamiento cerrada — consulta precio regular';
+        }
+        return;
+      }
+      if (boxes.d) boxes.d.textContent = pad(Math.floor(diff / 86400000));
+      if (boxes.h) boxes.h.textContent = pad(Math.floor((diff / 3600000) % 24));
+      if (boxes.m) boxes.m.textContent = pad(Math.floor((diff / 60000) % 60));
+      if (boxes.s) boxes.s.textContent = pad(Math.floor((diff / 1000) % 60));
     }
     tick();
-    setInterval(tick, 1000);
+    timer = setInterval(tick, 1000);
   }
 
-  // --- Render circular ring percentages ---
   function initRings() {
     document.querySelectorAll('[data-ring]').forEach(function (el) {
       var pct = parseFloat(el.getAttribute('data-ring')) || 0;
+      pct = Math.max(0, Math.min(100, pct));
       var circumference = 97.4; // 2 * PI * 15.5
       var dash = (pct / 100) * circumference;
-      var gradId = 'ring-grad-' + Math.random().toString(36).slice(2, 8);
+      var gradId = 'rg-' + Math.random().toString(36).slice(2, 8);
+      el.setAttribute('role', 'img');
+      el.setAttribute('aria-label', 'Cobertura ' + pct + ' por ciento');
       el.innerHTML =
-        '<svg viewBox="0 0 36 36" width="60" height="60">' +
+        '<svg viewBox="0 0 36 36" width="60" height="60" aria-hidden="true" focusable="false">' +
           '<defs><linearGradient id="' + gradId + '" x1="0%" y1="0%" x2="100%" y2="0%">' +
             '<stop offset="0%" stop-color="#E8307A"/>' +
             '<stop offset="100%" stop-color="#a855f7"/>' +
@@ -45,7 +77,7 @@
           '<circle cx="18" cy="18" r="15.5" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="3"/>' +
           '<circle cx="18" cy="18" r="15.5" fill="none" stroke="url(#' + gradId + ')" stroke-width="3" stroke-linecap="round" stroke-dasharray="' + dash + ' ' + circumference + '"/>' +
         '</svg>' +
-        '<div class="ring-label">' + pct + '%</div>';
+        '<div class="ring-label" aria-hidden="true">' + pct + '%</div>';
     });
   }
 

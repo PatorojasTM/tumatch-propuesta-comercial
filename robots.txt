@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tumatch-propuesta-comercial.vercel.app/sitemap.xml
