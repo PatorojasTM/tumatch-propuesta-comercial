@@ -81,8 +81,39 @@
     });
   }
 
+  // --- Billing period toggle for UF plans ---
+  function initBillingToggle() {
+    var toggle = document.getElementById('billing-toggle');
+    if (!toggle) return;
+    var UF_CLP = 39000; // aproximado, visible solo como referencia
+    var periods = { monthly: { label: 'mensual', months: 1 }, semester: { label: 'por 6 meses', months: 6 }, annual: { label: 'por 12 meses', months: 12 } };
+    var buttons = toggle.querySelectorAll('button[data-period]');
+    function render(period) {
+      buttons.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-period') === period); });
+      document.querySelectorAll('.plan-uf').forEach(function (card) {
+        var priceEl = card.querySelector('[data-price]');
+        var clpEl = card.querySelector('[data-clp]');
+        var savingsEl = card.querySelector('[data-savings]');
+        var unitEl = card.querySelector('[data-unit]');
+        var value = card.getAttribute('data-' + period) || '0';
+        var savings = card.getAttribute('data-savings-' + period) || '';
+        var ufValue = parseFloat(value.replace(',', '.')) || 0;
+        var clpValue = Math.round(ufValue * UF_CLP);
+        if (priceEl) priceEl.textContent = value;
+        if (unitEl) unitEl.textContent = 'UF ' + periods[period].label;
+        if (clpEl) clpEl.textContent = '≈ $' + clpValue.toLocaleString('es-CL') + ' CLP';
+        if (savingsEl) savingsEl.textContent = savings ? 'Ahorras ' + savings + ' UF' : '';
+      });
+    }
+    buttons.forEach(function (b) {
+      b.addEventListener('click', function () { render(b.getAttribute('data-period')); });
+    });
+    render('monthly');
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initCountdown();
     initRings();
+    initBillingToggle();
   });
 })();
