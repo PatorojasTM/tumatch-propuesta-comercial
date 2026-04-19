@@ -362,6 +362,82 @@ section[id], [id="main"] { scroll-margin-top: calc(var(--nav-h) + 16px); }
 .tool-cat li { font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: var(--slate-300); padding: 4px 0; display: flex; gap: 8px; }
 .tool-cat li::before { content: '—'; color: var(--pink); flex-shrink: 0; }
 
+/* ---------- RELAUNCH BANNER ---------- */
+.relaunch-banner {
+  position: relative;
+  margin-top: 48px;
+  padding: 40px 48px;
+  border-radius: 24px;
+  background:
+    radial-gradient(ellipse at top left, rgba(212, 160, 23, 0.15), transparent 50%),
+    linear-gradient(135deg, rgba(232, 48, 122, 0.15) 0%, rgba(147, 51, 234, 0.10) 100%);
+  border: 1px solid rgba(232, 48, 122, 0.35);
+  box-shadow: 0 24px 60px rgba(232, 48, 122, 0.15);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 28px;
+  align-items: center;
+}
+.relaunch-banner::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 160, 23, 0.2), transparent 70%);
+  pointer-events: none;
+}
+.relaunch-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(212, 160, 23, 0.2);
+  border: 1px solid rgba(212, 160, 23, 0.4);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.relaunch-banner h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  color: var(--cream);
+  margin-top: 12px;
+  line-height: 1.2;
+}
+.relaunch-banner p {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1rem;
+  color: var(--slate-300);
+  margin-top: 12px;
+  max-width: 560px;
+  line-height: 1.5;
+}
+.relaunch-banner .relaunch-note {
+  margin-top: 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--gold);
+  font-weight: 500;
+}
+.relaunch-banner .relaunch-cta {
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
+@media (max-width: 720px) {
+  .relaunch-banner { grid-template-columns: 1fr; padding: 32px 24px; }
+  .relaunch-banner h3 { font-size: 1.4rem; }
+  .relaunch-banner .relaunch-cta { width: 100%; }
+}
+
 /* ---------- PAIN LIST (mini-empathy bullets) ---------- */
 .pain-list { list-style: none; margin-top: 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
 .pain-list li { padding: 18px 22px; border-radius: 14px; background: rgba(232, 93, 74, 0.06); border-left: 3px solid var(--coral); font-family: 'EB Garamond', serif; font-size: 1.02rem; color: var(--slate-200); line-height: 1.4; }
