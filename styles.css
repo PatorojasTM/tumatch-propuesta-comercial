@@ -72,9 +72,16 @@ section[id], [id="main"] { scroll-margin-top: calc(var(--nav-h) + 16px); }
   font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.3rem;
   background: var(--grad-1); -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-.nav-links { display: flex; gap: 28px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.nav-links { display: flex; gap: 28px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; align-items: center; }
 .nav-links a { color: var(--slate-400); transition: color 0.2s; }
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--cream); }
+.nav-links a.nav-back {
+  color: var(--cream); padding: 8px 16px; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04); border: 1px solid var(--slate-700);
+  letter-spacing: 0.08em; text-transform: none; font-weight: 500;
+  transition: background 0.2s, border-color 0.2s;
+}
+.nav-links a.nav-back:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--slate-400); }
 .nav-cta {
   padding: 10px 22px; border-radius: 999px;
   background: var(--grad-1); color: white; font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.85rem;

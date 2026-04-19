@@ -1,27 +1,32 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0D1B2A" />
-  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0D1B2A" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#FAF8F4" media="(prefers-color-scheme: light)" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="TuMatch Inmobiliario" />
+  <meta name="keywords" content="CRM inmobiliario, CRM corredores, software corretaje Chile, CRM propiedades, CRM empresa inmobiliaria, herramientas corretaje, publicación portales, tasación online, simulador hipotecario, IA inmobiliaria, Meta ads inmobiliario, CRM con IA, gestor corretaje Chile" />
 
-  <title>CRM TuMatch — Más de 40 herramientas revolucionarias en un solo CRM</title>
-  <meta name="description" content="Mucho más que un CRM. +40 herramientas con IA, academia exclusiva, canje con 500+ corredores y alianzas con la banca. Prelanzamiento con precios preferenciales: pagas 6 meses, usas 8." />
+  <title>CRM TuMatch — +40 herramientas con IA para empresas de corretaje</title>
+  <meta name="description" content="El CRM inmobiliario con más herramientas del mercado. Publicación a portales, tasación, simulador hipotecario, Meta ads, IA, documentos y canje entre corredores. Todo en una sola aplicación. Precios de prelanzamiento — pregunta por el descuento especial." />
 
   <link rel="canonical" href="https://tumatch-propuesta-comercial.vercel.app/crm" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
   <meta property="og:type" content="product" />
   <meta property="og:url" content="https://tumatch-propuesta-comercial.vercel.app/crm" />
-  <meta property="og:title" content="CRM TuMatch — +40 herramientas revolucionarias en un solo lugar" />
-  <meta property="og:description" content="Mucho más que CRM: IA, academia, canje entre corredores, alianzas con banca. Precios preferenciales de prelanzamiento hasta el lanzamiento oficial." />
+  <meta property="og:title" content="CRM TuMatch — +40 herramientas con IA en un solo lugar" />
+  <meta property="og:description" content="Publicación automática a portales, Meta ads, tasación, simulador hipotecario, documentos, canje. Todo con IA y soporte humano. Prelanzamiento con descuento especial." />
   <meta property="og:image" content="https://tumatch-propuesta-comercial.vercel.app/assets/og-crm.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="TuMatch" />
   <meta property="og:locale" content="es_CL" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="CRM TuMatch — +40 herramientas revolucionarias" />
-  <meta name="twitter:description" content="Mucho más que CRM: IA, academia, canje, banca. Prelanzamiento." />
+  <meta name="twitter:title" content="CRM TuMatch — +40 herramientas con IA" />
+  <meta name="twitter:description" content="Todo el corretaje moderno en una sola app. IA + soporte humano. Prelanzamiento abierto." />
   <meta name="twitter:image" content="https://tumatch-propuesta-comercial.vercel.app/assets/og-crm.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,40 +34,63 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
 
+  <script>
+    // Theme bootstrap — evita FOUC
+    (function () {
+      var saved = localStorage.getItem('tm-theme');
+      var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      var theme = saved || (prefersLight ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": "CRM TuMatch",
-    "description": "Plataforma todo-en-uno con +40 herramientas para empresas de corretaje: CRM, IA, academia exclusiva, red de canje, alianzas con banca, publicación a portales y redes sociales.",
+    "description": "Plataforma CRM inmobiliaria todo-en-uno con +40 herramientas integradas, IA y soporte humano. Publicación a portales, Meta ads, tasación, simulador hipotecario, documentos, canje entre corredores, academia y alianzas con banca.",
     "brand": { "@type": "Brand", "name": "TuMatch" },
-    "offers": [
+    "image": "https://tumatch-propuesta-comercial.vercel.app/assets/og-crm.png",
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "50000",
+      "highPrice": "510000",
+      "priceCurrency": "CLP",
+      "offerCount": "3",
+      "availability": "https://schema.org/InStock",
+      "url": "https://tumatch-propuesta-comercial.vercel.app/crm#planes"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
       {
-        "@type": "Offer",
-        "name": "Prelanzamiento — Mensual Flex",
-        "price": "50000",
-        "priceCurrency": "CLP",
-        "priceValidUntil": "2026-04-30",
-        "availability": "https://schema.org/InStock",
-        "url": "https://tumatch-propuesta-comercial.vercel.app/crm#planes"
+        "@type": "Question",
+        "name": "¿Qué incluye el CRM TuMatch?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Más de 40 herramientas integradas: publicación automática a portales, Meta ads, tasación, simulador hipotecario, análisis de rentabilidad, CRM de clientes, documentos con firma, IA para fotos y descripciones, canje con 500+ corredores, academia y alianzas con la banca."
+        }
       },
       {
-        "@type": "Offer",
-        "name": "Prelanzamiento — Oxígeno Semestre (pagas 6, usas 8)",
-        "price": "190000",
-        "priceCurrency": "CLP",
-        "priceValidUntil": "2026-04-30",
-        "availability": "https://schema.org/InStock",
-        "url": "https://tumatch-propuesta-comercial.vercel.app/crm#planes"
+        "@type": "Question",
+        "name": "¿Hay costo de instalación o migración?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Durante el periodo de prelanzamiento, el setup, la migración desde tu CRM actual y la capacitación de tu equipo son gratuitos."
+        }
       },
       {
-        "@type": "Offer",
-        "name": "Prelanzamiento — Oxígeno Año (pagas 12, usas 15)",
-        "price": "350000",
-        "priceCurrency": "CLP",
-        "priceValidUntil": "2026-04-30",
-        "availability": "https://schema.org/InStock",
-        "url": "https://tumatch-propuesta-comercial.vercel.app/crm#planes"
+        "@type": "Question",
+        "name": "¿Hay descuentos especiales de prelanzamiento?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Tenemos un precio de relanzamiento exclusivo para los clientes que se suman durante el periodo. Las condiciones varían por caso y se comparten directo por WhatsApp."
+        }
       }
     ]
   }
@@ -75,13 +103,17 @@
     <div class="nav-inner">
       <a href="/" class="brand">TuMatch</a>
       <div class="nav-links">
-        <a href="/membresia">Membresía</a>
-        <a href="/crm" aria-current="page">CRM</a>
-        <a href="#oxigeno">Oxígeno</a>
+        <a href="/#elige" class="nav-back">← Volver a Elegir servicios para corredores</a>
         <a href="#herramientas">Herramientas</a>
         <a href="#planes">Planes</a>
       </div>
-      <a class="nav-cta" href="https://wa.me/56934107448?text=Hola%2C%20me%20interesa%20el%20CRM%20de%20TuMatch" target="_blank" rel="noopener noreferrer">Quiero el CRM</a>
+      <div class="nav-actions">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Cambiar tema claro u oscuro">
+          <svg class="theme-icon theme-icon-dark" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.4 5.4 0 0 1-4.5 2.36a5.5 5.5 0 0 1-5.5-5.5c0-1.75.82-3.3 2.09-4.3C12.92 3.04 12.46 3 12 3z"/></svg>
+          <svg class="theme-icon theme-icon-light" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10zm0-4a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V4a1 1 0 0 1 1-1zm0 16a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1zM4 11a1 1 0 0 1 0 2H3a1 1 0 1 1 0-2h1zm17 0a1 1 0 1 1 0 2h-1a1 1 0 1 1 0-2h1zM5.64 5.64a1 1 0 0 1 1.41 0l.71.7a1 1 0 0 1-1.41 1.42l-.71-.71a1 1 0 0 1 0-1.41zm12.02 12.02a1 1 0 0 1 1.41 0l.71.71a1 1 0 0 1-1.41 1.41l-.71-.7a1 1 0 0 1 0-1.42zM5.64 18.36a1 1 0 0 1 0-1.42l.71-.7a1 1 0 1 1 1.41 1.41l-.71.71a1 1 0 0 1-1.41 0zm12.02-12.02a1 1 0 0 1 0-1.41l.71-.71a1 1 0 1 1 1.41 1.41l-.71.71a1 1 0 0 1-1.41 0z"/></svg>
+        </button>
+        <a class="nav-cta" href="https://wa.me/56934107448?text=Hola%2C%20me%20interesa%20el%20CRM%20TuMatch" target="_blank" rel="noopener noreferrer">Hablar con ventas</a>
+      </div>
     </div>
   </nav>
 
@@ -89,13 +121,12 @@
     <!-- HERO -->
     <section class="hero">
       <div class="section-narrow">
-        <div class="hero-badge"><span class="dot" aria-hidden="true"></span>Prelanzamiento · Precios preferenciales hasta el lanzamiento</div>
-        <h1>Llevas años pagando por un CRM que hace <span class="grad">lo mínimo</span>. Es hora de parar.</h1>
+        <div class="hero-badge"><span class="dot" aria-hidden="true"></span>Prelanzamiento · Cupos con precio especial</div>
+        <h1>Todo el corretaje moderno <span class="grad">en una sola app inteligente</span>.</h1>
         <p class="lead">
-          Lo sabes: tu sistema actual guarda leads y poco más. Para todo lo demás — publicar, tasar,
-          simular crédito, gestionar documentos, hacer campañas — tienes otras 4 suscripciones abiertas.
-          Aquí <strong>+40 herramientas revolucionarias en un solo CRM</strong>, con IA que te ayuda y
-          soporte humano que te acompaña.
+          Más de <strong>40 herramientas con IA</strong> para que tu empresa de corretaje publique,
+          tase, negocie y cierre desde un solo lugar. Sin pagar por cinco suscripciones que ni se hablan
+          entre ellas.
         </p>
 
         <div id="countdown" class="countdown" aria-live="polite">
@@ -107,38 +138,44 @@
         </div>
 
         <div class="hero-ctas">
-          <a href="#planes" class="btn-primary">Ver planes de prelanzamiento →</a>
-          <a href="https://wa.me/56934107448?text=Hola%2C%20me%20interesa%20el%20CRM%20de%20TuMatch" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">Hablar con alguien</a>
+          <a href="#planes" class="btn-primary">Ver planes y precios →</a>
+          <a href="https://wa.me/56934107448?text=Hola%2C%20quiero%20agendar%20una%20demo%20del%20CRM%20TuMatch" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">Agendar demo · WhatsApp</a>
+        </div>
+
+        <div class="hero-trust">
+          <span>✦ Setup + migración gratis</span>
+          <span>✦ IA + soporte humano</span>
+          <span>✦ Sin permanencia encubierta</span>
         </div>
       </div>
     </section>
 
-    <!-- EL INSIGHT -->
+    <!-- INSIGHT -->
     <section class="section">
       <div class="section-narrow">
         <div class="center">
           <div class="section-eyebrow">Hablemos claro</div>
-          <h2 class="section-title">Si ya gestionas un equipo y una cartera, ya sabes estas tres cosas</h2>
+          <h2 class="section-title">Si ya gestionas una empresa de corretaje, estas tres cosas te suenan</h2>
         </div>
         <ul class="pain-list">
-          <li>Tu CRM actual te cobra todos los meses y la mitad de los módulos ni siquiera los usas porque están <strong>a medio hacer</strong>.</li>
-          <li>Para tasar abres un sitio distinto. Para simular crédito, otro. Para publicar, otro. Para correr campañas en Meta, otro. <strong>Cuatro herramientas, cuatro facturas, cuatro logins</strong>.</li>
+          <li>Tu CRM actual te cobra todos los meses y la mitad de los módulos ni los usas porque están <strong>a medio hacer</strong>.</li>
+          <li>Para tasar abres un sitio distinto. Para simular crédito, otro. Para publicar, otro. Para campañas en Meta, otro. <strong>Cuatro herramientas, cuatro facturas, cuatro logins</strong>.</li>
           <li>Cuando necesitas soporte real, cae en manos de un chatbot que te da vueltas. <strong>Ya nadie te acompaña</strong> en serio.</li>
         </ul>
-        <p class="note" style="margin-top: 32px; font-size: 1.05rem; color: var(--cream);">
+        <p class="note" style="margin-top: 32px; font-size: 1.05rem;">
           Tienes razón. Estás pagando de más por poco. Por eso construimos esto.
         </p>
       </div>
     </section>
 
-    <!-- LA PROPUESTA -->
-    <section class="section" style="background: var(--slate-900);">
+    <!-- PROPUESTA STATS -->
+    <section class="section section--alt">
       <div class="section-narrow center">
         <div class="section-eyebrow">La propuesta</div>
-        <h2 class="section-title">Mucho más que un CRM. +40 herramientas tecnológicas revolucionarias en un solo lugar.</h2>
+        <h2 class="section-title">Mucho más que un CRM. Una plataforma completa.</h2>
         <p class="section-lead">
-          La inteligencia artificial hace el trabajo pesado. El equipo humano te acompaña en el camino.
-          Y la red de corredores te abre canjes y alianzas que hoy no tienes.
+          La inteligencia artificial hace el trabajo pesado. El equipo humano te acompaña.
+          La red de corredores te abre canjes y alianzas que hoy no tienes.
         </p>
         <div class="stats-grid">
           <div class="stat"><div class="big">+40</div><div class="lbl">Herramientas integradas en una sola aplicación</div></div>
@@ -146,44 +183,19 @@
           <div class="stat"><div class="big">500+</div><div class="lbl">Corredores activos en la red para canje</div></div>
           <div class="stat"><div class="big">24/7</div><div class="lbl">Soporte humano. Hablas con personas, no con bots</div></div>
         </div>
-      </div>
-    </section>
-
-    <!-- FRICCIONES + OXÍGENO -->
-    <section class="section" id="oxigeno">
-      <div class="section-narrow">
-        <div class="center">
-          <div class="section-eyebrow">Sabemos por qué no te cambias</div>
-          <h2 class="section-title">Hay dos razones. Las dos las resolvemos nosotros.</h2>
-        </div>
-
-        <div class="frictions">
-          <div class="friction">
-            <div class="friction-tag">Fricción 1</div>
-            <h3>"Migrar me va a tomar semanas."</h3>
-            <p class="problem">Tu base de leads, tus propiedades, tus contratos, tus documentos, tu historial… mover todo a un sistema nuevo es un mes perdido y dos ventas caídas.</p>
-            <div class="arrow">Nuestra solución →</div>
-            <p class="answer"><strong>Setup y migración 100% gratuitos</strong>. Nuestro equipo mueve tu data, configura tus flujos y capacita a tu gente. En <strong>72 horas</strong> estás operando.</p>
-          </div>
-
-          <div class="friction">
-            <div class="friction-tag">Fricción 2</div>
-            <h3>"No tengo caja para pagar dos CRM a la vez."</h3>
-            <p class="problem">Si firmas hoy, durante el primer mes pagas dos plataformas: la nueva mientras aprendes y la vieja por inercia contractual. Eso te frena.</p>
-            <div class="arrow">Nuestra solución →</div>
-            <p class="answer"><strong>Promo Oxígeno: meses gratis según tu compromiso</strong>. En el plan Semestre pagas 6 y usas 8. En el plan Año pagas 12 y usas 15. Tu caja respira mientras recuperas el flujo. Y si aún no quieres comprometerte, está el plan Mensual Flex sin compromiso.</p>
-          </div>
+        <div class="section-cta-mid">
+          <a href="#planes" class="btn-primary">Ver planes →</a>
         </div>
       </div>
     </section>
 
     <!-- HERRAMIENTAS -->
-    <section class="section" id="herramientas" style="background: var(--slate-900);">
+    <section class="section" id="herramientas">
       <div class="section-wide">
         <div class="center">
           <div class="section-eyebrow">+40 herramientas en 6 áreas</div>
           <h2 class="section-title">Todo lo que hoy pagas por separado, aquí viene junto.</h2>
-          <p class="section-lead">Organizado por cómo lo usa un equipo de corretaje en el día a día.</p>
+          <p class="section-lead">Organizado por cómo lo usa tu equipo en el día a día.</p>
         </div>
 
         <div class="tool-cats">
@@ -193,12 +205,12 @@
               <h3>Publicación y Marketing</h3>
             </div>
             <ul>
-              <li>Publicación automática a todos los portales inmobiliarios de Chile</li>
-              <li>Conexión con Meta para campañas pagadas en Instagram y Facebook</li>
+              <li>Publicación automática a los portales inmobiliarios de Chile</li>
+              <li>Conexión con Meta para campañas en Instagram y Facebook</li>
               <li>Editor de fotos con IA (profesional en segundos)</li>
               <li>Descripción con IA optimizada por portal</li>
               <li>Landing personalizada por corredor</li>
-              <li>Tours virtuales tipo Matterport integrados</li>
+              <li>Tours virtuales tipo Matterport</li>
               <li>Cambio automático de portada</li>
             </ul>
           </div>
@@ -209,8 +221,8 @@
               <h3>CRM y Pipeline</h3>
             </div>
             <ul>
-              <li>Embudo Comprador/Arrendatario</li>
-              <li>Embudo Captación (Vendedor/Arrendador)</li>
+              <li>Embudo Comprador / Arrendatario</li>
+              <li>Embudo Captación (Vendedor / Arrendador)</li>
               <li>Perfil inversionista con cap rate y comparables</li>
               <li>Mapa de leads + mapa de conversión</li>
               <li>Dashboard ejecutivo con ranking del equipo</li>
@@ -239,7 +251,7 @@
             </div>
             <ul>
               <li>Asistente inmobiliario y legal con IA</li>
-              <li>Coaching por IA para el corredor en cada interacción</li>
+              <li>Coaching por IA en cada interacción con cliente</li>
               <li>Barra lateral con comentarios humanos del equipo</li>
               <li>Soporte real 24/7 por WhatsApp</li>
               <li>Mi Día: resumen inteligente diario con prioridades</li>
@@ -267,41 +279,45 @@
               <h3>Canje, alianzas y finanzas</h3>
             </div>
             <ul>
-              <li>Canje masivo con 500+ corredores activos de la red</li>
+              <li>Canje masivo con 500+ corredores activos</li>
               <li>Carga de canje directo en cada publicación</li>
-              <li>Acceso a toda la banca: condiciones preferentes para tus clientes</li>
+              <li>Acceso a toda la banca: condiciones preferentes</li>
               <li>Alianzas premium con mutuarias y proveedores</li>
-              <li>Panel financiero de la oficina (ingresos, egresos, proyección)</li>
+              <li>Panel financiero de la oficina</li>
               <li>Portal del propietario en vivo</li>
             </ul>
           </div>
+        </div>
+
+        <div class="section-cta-mid">
+          <a href="#planes" class="btn-primary">Quiero ver los planes →</a>
         </div>
       </div>
     </section>
 
     <!-- ACADEMIA -->
-    <section class="section">
+    <section class="section section--alt">
       <div class="section-narrow center">
         <div class="section-eyebrow">Academia exclusiva</div>
         <h2 class="section-title">Toda tu gente capacitándose constantemente, sin pagar aparte.</h2>
         <p class="section-lead">
-          Mientras otros cobran cursos por separado, aquí la Academia TuMatch viene dentro. Acceso para
-          todo tu equipo. Se actualiza cada mes con nuevos módulos.
+          Mientras otros cobran cursos por separado, la Academia TuMatch viene dentro. Acceso para
+          todo tu equipo. Nuevos módulos cada mes.
         </p>
 
         <div class="features-grid" style="margin-top: 40px;">
           <div class="feature"><div class="ring" data-ring="100"></div><div class="feature-body"><h3>Operación Arriendo</h3><p>Sub-talleres Arrendador y Arrendatario. Flujo completo.</p></div></div>
-          <div class="feature"><div class="ring" data-ring="100"></div><div class="feature-body"><h3>Comprador Primera Vivienda</h3><p>10 módulos base + avanzado con Psicología del Cliente, SPIN, LAARC.</p></div></div>
+          <div class="feature"><div class="ring" data-ring="100"></div><div class="feature-body"><h3>Comprador Primera Vivienda</h3><p>10 módulos + avanzado con Psicología del Cliente, SPIN, LAARC.</p></div></div>
           <div class="feature"><div class="ring" data-ring="100"></div><div class="feature-body"><h3>Comprador Inversionista</h3><p>Cap rate, cash-on-cash, plusvalía, comparación vs. depósito a plazo.</p></div></div>
           <div class="feature"><div class="ring" data-ring="100"></div><div class="feature-body"><h3>Cliente Vendedor</h3><p>Captación premium, tasación, manejo de objeciones, cierre.</p></div></div>
           <div class="feature"><div class="ring" data-ring="100"></div><div class="feature-body"><h3>Certificación profesional</h3><p>Acredita a tu equipo. Diferenciador en el mercado.</p></div></div>
-          <div class="feature"><div class="ring" data-ring="100"></div><div class="feature-body"><h3>Capacitación constante</h3><p>Módulos mensuales en área legal, sistema, ventas e IA.</p></div></div>
+          <div class="feature"><div class="ring" data-ring="100"></div><div class="feature-body"><h3>Capacitación constante</h3><p>Módulos mensuales legal, sistema, ventas e IA.</p></div></div>
         </div>
       </div>
     </section>
 
     <!-- RED Y ALIANZAS -->
-    <section class="section" style="background: var(--slate-900);">
+    <section class="section">
       <div class="section-narrow">
         <div class="center">
           <div class="section-eyebrow">Lo que ningún otro CRM te da</div>
@@ -309,123 +325,126 @@
         </div>
 
         <div class="features-grid" style="margin-top: 40px;">
-          <div class="feature" style="padding: 28px;"><div class="feature-body"><h3>Canje con 500+ corredores</h3><p>Tu próxima venta puede venir de un colega de la red. Marketplace interno, ofertas abiertas y alianzas activas todos los días.</p></div></div>
-          <div class="feature" style="padding: 28px;"><div class="feature-body"><h3>Acceso a toda la banca</h3><p>Condiciones preferentes con bancos y mutuarias. Tu cliente recibe mejores tasas y tú cierras más rápido.</p></div></div>
-          <div class="feature" style="padding: 28px;"><div class="feature-body"><h3>Capacitación constante</h3><p>Actualizaciones legales, sistema, ventas e IA todos los meses. Tu equipo siempre un paso adelante.</p></div></div>
-          <div class="feature" style="padding: 28px;"><div class="feature-body"><h3>Posibilidad real de canje</h3><p>Tus propiedades visibles para corredores activos. Stock compartido, comisiones respetadas.</p></div></div>
-          <div class="feature" style="padding: 28px;"><div class="feature-body"><h3>Soporte humano que te conoce</h3><p>Nada de bots dando vueltas. Atención directa con alguien del equipo que conoce tu cuenta.</p></div></div>
-          <div class="feature" style="padding: 28px;"><div class="feature-body"><h3>Todo desde una sola aplicación</h3><p>Un login. Una factura. Una app. Desde el primer contacto hasta la escritura.</p></div></div>
+          <div class="feature feature--lg"><div class="feature-body"><h3>Canje con 500+ corredores</h3><p>Tu próxima venta puede venir de un colega de la red. Marketplace interno con alianzas activas todos los días.</p></div></div>
+          <div class="feature feature--lg"><div class="feature-body"><h3>Acceso a toda la banca</h3><p>Condiciones preferentes con bancos y mutuarias. Tu cliente recibe mejores tasas y tú cierras más rápido.</p></div></div>
+          <div class="feature feature--lg"><div class="feature-body"><h3>Capacitación constante</h3><p>Actualizaciones legales, sistema, ventas e IA todos los meses.</p></div></div>
+          <div class="feature feature--lg"><div class="feature-body"><h3>Posibilidad real de canje</h3><p>Tus propiedades visibles para corredores activos. Stock compartido, comisiones respetadas.</p></div></div>
+          <div class="feature feature--lg"><div class="feature-body"><h3>Soporte humano que te conoce</h3><p>Nada de bots. Atención directa con alguien del equipo que conoce tu cuenta.</p></div></div>
+          <div class="feature feature--lg"><div class="feature-body"><h3>Todo desde una sola aplicación</h3><p>Un login. Una factura. Una app. Desde el primer contacto hasta la escritura.</p></div></div>
         </div>
       </div>
     </section>
 
     <!-- PLANES -->
-    <section class="section" id="planes">
+    <section class="section section--alt" id="planes">
       <div class="section-narrow">
         <div class="center">
-          <div class="section-eyebrow">Precios de prelanzamiento</div>
-          <h2 class="section-title">Tres formas de entrar. Solo durante el prelanzamiento.</h2>
+          <div class="section-eyebrow">Planes de prelanzamiento</div>
+          <h2 class="section-title">Tres formas de entrar. Precio fijo por todo el contrato.</h2>
           <p class="section-lead">
-            Estos precios son exclusivos para clientes tempranos. En el lanzamiento oficial suben.
-            Entra ahora y el precio queda fijo durante toda tu contratación.
+            Estos precios son exclusivos del periodo de prelanzamiento. El setup, la migración y la
+            capacitación del equipo van gratis en cualquiera de los tres.
           </p>
         </div>
 
         <div class="plans-grid">
-          <!-- MENSUAL -->
           <div class="plan">
             <div class="plan-period">Mensual Flex</div>
             <div class="plan-headline">Prueba sin compromiso</div>
             <div class="plan-price">$50.000</div>
             <div class="plan-equiv">por mes · renovable</div>
-            <p class="plan-sub">Para probar el CRM antes de decidir. Cancela cuando quieras.</p>
+            <p class="plan-sub">Para conocer el CRM antes de decidir. Cancela cuando quieras.</p>
             <ul class="plan-list">
               <li>Acceso a las +40 herramientas</li>
               <li>Publicación a portales e Instagram/Facebook</li>
               <li>Usuarios ilimitados del equipo</li>
+              <li>Setup y migración gratis</li>
               <li>Soporte estándar</li>
             </ul>
             <a href="https://wa.me/56934107448?text=Hola%2C%20quiero%20el%20plan%20Mensual%20Flex%20del%20CRM%20TuMatch" target="_blank" rel="noopener noreferrer" class="btn-ghost">Quiero probarlo</a>
           </div>
 
-          <!-- SEMESTRE OXIGENO - BEST -->
           <div class="plan best">
             <div class="plan-ribbon">Más elegido</div>
-            <div class="plan-period">Oxígeno Semestre</div>
-            <div class="plan-headline">Pagas 6 meses, usas 8.</div>
-            <div class="plan-price">$190.000</div>
-            <div class="plan-anchor">regular $400.000</div>
-            <div class="plan-equiv">total · 8 meses efectivos</div>
-            <div class="plan-savings">$23.750 efectivo / mes</div>
-            <p class="plan-sub">El punto dulce. Oxígeno de caja sin amarrarte un año.</p>
+            <div class="plan-period">Semestral</div>
+            <div class="plan-headline">Punto dulce del equipo</div>
+            <div class="plan-price">$270.000</div>
+            <div class="plan-anchor">regular $300.000</div>
+            <div class="plan-equiv">por 6 meses · $45.000 efectivo / mes</div>
+            <div class="plan-savings">Ahorro 10% sobre plan mensual</div>
+            <p class="plan-sub">Compromiso moderado con el mejor balance entre flexibilidad y precio.</p>
             <ul class="plan-list">
-              <li class="extra">2 meses GRATIS de oxígeno</li>
-              <li class="extra">Setup + migración gratuitos</li>
+              <li class="extra">Setup + migración + academia gratis</li>
               <li class="extra">Capacitación del equipo incluida</li>
-              <li class="extra">Academia exclusiva para todo el equipo</li>
-              <li>Soporte prioritario los 8 meses</li>
+              <li>Soporte prioritario 6 meses</li>
               <li>Acceso a las +40 herramientas</li>
               <li>Usuarios ilimitados</li>
             </ul>
-            <a href="https://wa.me/56934107448?text=Hola%2C%20quiero%20el%20plan%20Ox%C3%ADgeno%20Semestre%20del%20CRM%20TuMatch" target="_blank" rel="noopener noreferrer" class="btn-primary">Quiero este plan</a>
+            <a href="https://wa.me/56934107448?text=Hola%2C%20quiero%20el%20plan%20Semestral%20del%20CRM%20TuMatch" target="_blank" rel="noopener noreferrer" class="btn-primary">Quiero este plan</a>
           </div>
 
-          <!-- ANUAL OXIGENO -->
           <div class="plan">
-            <div class="plan-period">Oxígeno Año</div>
-            <div class="plan-headline">Pagas 12, usas 15.</div>
-            <div class="plan-price">$350.000</div>
-            <div class="plan-anchor">regular $750.000</div>
-            <div class="plan-equiv">total · 15 meses efectivos</div>
-            <div class="plan-savings">$23.333 efectivo / mes</div>
-            <p class="plan-sub">Precio fijo por 15 meses. Tranquilidad total.</p>
+            <div class="plan-period">Anual</div>
+            <div class="plan-headline">Precio fijo por 12 meses</div>
+            <div class="plan-price">$510.000</div>
+            <div class="plan-anchor">regular $600.000</div>
+            <div class="plan-equiv">por año · $42.500 efectivo / mes</div>
+            <div class="plan-savings">Ahorro 15% sobre plan mensual</div>
+            <p class="plan-sub">Máxima tranquilidad. Precio blindado, sin alzas durante el año.</p>
             <ul class="plan-list">
-              <li class="extra">3 meses GRATIS de oxígeno</li>
               <li class="extra">Setup + migración + academia gratis</li>
               <li class="extra">1 customización de flujo sin costo</li>
               <li class="extra">Revisión trimestral con tu asesor</li>
-              <li>Soporte prioritario los 15 meses</li>
+              <li>Soporte prioritario los 12 meses</li>
               <li>Acceso a las +40 herramientas</li>
               <li>Usuarios ilimitados</li>
             </ul>
-            <a href="https://wa.me/56934107448?text=Hola%2C%20quiero%20el%20plan%20Ox%C3%ADgeno%20A%C3%B1o%20del%20CRM%20TuMatch" target="_blank" rel="noopener noreferrer" class="btn-ghost">Quiero este plan</a>
+            <a href="https://wa.me/56934107448?text=Hola%2C%20quiero%20el%20plan%20Anual%20del%20CRM%20TuMatch" target="_blank" rel="noopener noreferrer" class="btn-ghost">Quiero este plan</a>
           </div>
         </div>
 
-        <div class="savings-box" style="margin-top: 48px;">
-          <span class="highlight-pill">Bonos del prelanzamiento</span>
-          <h3 style="margin-top: 12px;">Todo esto va regalado si firmas durante el prelanzamiento</h3>
-          <ul class="savings-list">
-            <li><span class="label">Setup y configuración</span><span class="price">$200.000</span></li>
-            <li><span class="label">Migración de tu CRM actual</span><span class="price">$150.000</span></li>
-            <li><span class="label">Capacitación del equipo</span><span class="price">$120.000</span></li>
-            <li><span class="label">Academia exclusiva (3 primeros meses)</span><span class="price">$90.000</span></li>
-          </ul>
-          <div class="savings-total">
-            <small>Valor regalado total</small>
-            <strong>$560.000</strong>
+        <!-- PRECIO DE RELANZAMIENTO -->
+        <div class="relaunch-banner" id="relanzamiento">
+          <div>
+            <span class="relaunch-badge">🚀 Descuento especial de relanzamiento</span>
+            <h3>Hay un precio mejor que no publicamos. Pregúntalo por WhatsApp.</h3>
+            <p>
+              Estamos en periodo de relanzamiento. Para los equipos que se suman ahora tenemos
+              <strong>condiciones exclusivas</strong> que no aparecen en esta página: descuentos
+              adicionales, meses bonificados y bonos de implementación. Cambia según tu caso, por
+              eso lo compartimos directo al chat.
+            </p>
+            <div class="relaunch-note">● Cupos limitados · Solo durante el periodo de relanzamiento</div>
           </div>
+          <a
+            class="btn-whatsapp relaunch-cta"
+            href="https://wa.me/56934107448?text=Hola%2C%20quiero%20saber%20el%20precio%20de%20relanzamiento%20del%20CRM%20TuMatch%20y%20las%20condiciones%20especiales%20disponibles%20ahora."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Pedir precio de relanzamiento
+          </a>
         </div>
 
-        <p class="note">Precios en pesos chilenos + IVA. Pago al activar. Sin permanencia encubierta ni letra chica.</p>
+        <p class="note" style="margin-top: 32px;">Precios en pesos chilenos + IVA. Pago al activar. Sin permanencia encubierta ni letra chica.</p>
       </div>
     </section>
 
     <!-- ROI -->
-    <section class="section" style="background: var(--slate-900);">
+    <section class="section">
       <div class="section-narrow center">
         <div class="section-eyebrow">La matemática</div>
         <h2 class="section-title">Una sola venta extra y el CRM se paga solo.</h2>
         <p class="section-lead">
-          Un cierre promedio en Chile mueve <strong>~$3.000.000 de comisión</strong>. El plan más completo
-          del CRM cuesta $350.000 por <strong>15 meses</strong>. Si el CRM te ayuda a cerrar <strong>una sola
-          venta más</strong> al año (y lo hará), el retorno es <strong>8,5×</strong>.
+          Un cierre promedio en Chile mueve <strong>~$3.000.000 de comisión</strong>. El plan anual
+          del CRM cuesta $510.000. Si el CRM te ayuda a cerrar <strong>una sola venta más</strong> al
+          año, el retorno es casi <strong>6×</strong>.
         </p>
         <div class="stats-grid">
           <div class="stat"><div class="big">$3M</div><div class="lbl">Comisión promedio por cierre en Chile</div></div>
-          <div class="stat"><div class="big">$23k</div><div class="lbl">Costo efectivo mensual con Oxígeno Año</div></div>
-          <div class="stat"><div class="big">0,8%</div><div class="lbl">De una comisión pagas el CRM un mes entero</div></div>
-          <div class="stat"><div class="big">8,5×</div><div class="lbl">Retorno con solo 1 venta extra al año</div></div>
+          <div class="stat"><div class="big">$42k</div><div class="lbl">Costo mensual efectivo del plan anual</div></div>
+          <div class="stat"><div class="big">1,4%</div><div class="lbl">De una comisión pagas el CRM un mes completo</div></div>
+          <div class="stat"><div class="big">5,9×</div><div class="lbl">Retorno con solo 1 venta extra al año</div></div>
         </div>
       </div>
     </section>
@@ -433,12 +452,12 @@
     <!-- CTA -->
     <section class="cta-block">
       <h2>20 minutos. Te mostramos el CRM corriendo, no un slide.</h2>
-      <p>Si te hace sentido, activas la promo del prelanzamiento hoy mismo. Si no, te damos una recomendación honesta.</p>
+      <p>Si te hace sentido, activamos tu plan hoy mismo con setup gratis. Si no te hace sentido, te damos una recomendación honesta.</p>
       <div class="buttons">
         <a href="https://wa.me/56934107448?text=Hola%2C%20quiero%20agendar%20una%20demo%20del%20CRM%20TuMatch" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">Agendar demo · WhatsApp</a>
         <a href="mailto:patricio.rojas@tumatchinmobiliario.cl?subject=Demo%20CRM%20TuMatch" class="btn-ghost">Escribir correo</a>
       </div>
-      <small>Precios de prelanzamiento exclusivos para clientes tempranos. Una vez que se lance oficialmente, suben.</small>
+      <small>Hablas con una persona del equipo desde el primer mensaje. Sin bots intermediarios.</small>
     </section>
   </main>
 
