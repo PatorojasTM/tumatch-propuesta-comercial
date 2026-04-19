@@ -85,8 +85,10 @@
   function initBillingToggle() {
     var toggle = document.getElementById('billing-toggle');
     if (!toggle) return;
-    var UF_CLP = 39000; // aproximado, visible solo como referencia
-    var periods = { monthly: { label: 'mensual', months: 1 }, semester: { label: 'por 6 meses', months: 6 }, annual: { label: 'por 12 meses', months: 12 } };
+    // Valor UF referencial (ver nota de fecha en la UI)
+    var UF_CLP = 39974;
+    var UF_DATE = '19 abr 2026';
+    var periods = { monthly: { label: 'mensual', months: 1, discountPct: 0 }, semester: { label: 'por 6 meses', months: 6, discountPct: 13 }, annual: { label: 'por 12 meses', months: 12, discountPct: 23.5 } };
     var buttons = toggle.querySelectorAll('button[data-period]');
     function render(period) {
       buttons.forEach(function (b) {
@@ -98,25 +100,40 @@
         var priceEl = card.querySelector('[data-price]');
         var wasEl = card.querySelector('[data-was]');
         var clpEl = card.querySelector('[data-clp]');
+        var clpNoteEl = card.querySelector('[data-clp-note]');
         var savingsEl = card.querySelector('[data-savings]');
         var unitEl = card.querySelector('[data-unit]');
+        var discountBadgeEl = card.querySelector('[data-discount-badge]');
         var value = card.getAttribute('data-' + period) || '0';
         var wasValue = card.getAttribute('data-' + period + '-was') || '';
         var savings = card.getAttribute('data-savings-' + period) || '';
         var ufValue = parseFloat(value.replace(',', '.')) || 0;
         var clpValue = Math.round(ufValue * UF_CLP);
+        var p = periods[period];
         if (priceEl) priceEl.textContent = value;
-        if (unitEl) unitEl.textContent = 'UF ' + periods[period].label;
+        if (unitEl) unitEl.textContent = 'UF ' + p.label;
         if (wasEl) wasEl.textContent = wasValue ? 'antes UF ' + wasValue : '';
-        if (clpEl) {
-          var clpLabel = '≈ $' + clpValue.toLocaleString('es-CL') + ' CLP';
-          if (period !== 'monthly') {
-            var perMonth = Math.round(clpValue / periods[period].months).toLocaleString('es-CL');
-            clpLabel += ' total · $' + perMonth + '/mes';
+        if (clpEl) clpEl.textContent = '$' + clpValue.toLocaleString('es-CL');
+        if (clpNoteEl) {
+          var note;
+          if (period === 'monthly') {
+            note = 'CLP al día · UF hoy $' + UF_CLP.toLocaleString('es-CL') + ' (' + UF_DATE + ')';
+          } else {
+            var perMonth = Math.round(clpValue / p.months).toLocaleString('es-CL');
+            note = 'total · $' + perMonth + ' CLP/mes · UF hoy $' + UF_CLP.toLocaleString('es-CL');
           }
-          clpEl.textContent = clpLabel;
+          clpNoteEl.textContent = note;
         }
         if (savingsEl) savingsEl.textContent = savings ? 'Ahorras UF ' + savings + ' vs mensual' : '';
+        if (discountBadgeEl) {
+          if (p.discountPct > 0) {
+            discountBadgeEl.textContent = '−' + String(p.discountPct).replace('.', ',') + '%';
+            discountBadgeEl.style.display = '';
+          } else {
+            discountBadgeEl.textContent = '';
+            discountBadgeEl.style.display = 'none';
+          }
+        }
       });
     }
     buttons.forEach(function (b) {
