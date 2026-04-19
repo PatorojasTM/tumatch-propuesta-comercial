@@ -89,7 +89,11 @@
     var periods = { monthly: { label: 'mensual', months: 1 }, semester: { label: 'por 6 meses', months: 6 }, annual: { label: 'por 12 meses', months: 12 } };
     var buttons = toggle.querySelectorAll('button[data-period]');
     function render(period) {
-      buttons.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-period') === period); });
+      buttons.forEach(function (b) {
+        var active = b.getAttribute('data-period') === period;
+        b.classList.toggle('active', active);
+        b.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
       document.querySelectorAll('.plan-uf').forEach(function (card) {
         var priceEl = card.querySelector('[data-price]');
         var clpEl = card.querySelector('[data-clp]');

@@ -1,0 +1,8 @@
+README.md
+*.md
+.git
+.gitignore
+.vercelignore
+.idea
+.vscode
+node_modules

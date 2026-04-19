@@ -117,7 +117,7 @@
           <h3 style="margin-top: 12px;">Gasto mensual típico del corredor independiente</h3>
           <ul class="savings-list">
             <li><span class="label">Sistema de publicación a portales</span><span class="price">$60.000</span></li>
-            <li><span class="label">CRM de clientes (WASI / Convecta / similar)</span><span class="price">$50.000</span></li>
+            <li><span class="label">CRM de clientes (cualquiera del mercado)</span><span class="price">$50.000</span></li>
             <li><span class="label">Tasador online</span><span class="price">$25.000</span></li>
             <li><span class="label">Simulador hipotecario</span><span class="price">$15.000</span></li>
             <li><span class="label">Plataforma de marketing digital (Meta ads)</span><span class="price">$40.000</span></li>
@@ -279,10 +279,10 @@
           <h2 class="section-title">Elige según cuántas propiedades vas a gestionar</h2>
           <p class="section-lead">Mismas +40 herramientas en los 6 planes. Solo cambia el tamaño de tu cartera.</p>
 
-          <div class="billing-toggle" id="billing-toggle" role="tablist" aria-label="Periodo de facturación">
-            <button type="button" data-period="monthly" class="active" role="tab">Mensual</button>
-            <button type="button" data-period="semester" role="tab">Semestre <span class="discount">−10%</span></button>
-            <button type="button" data-period="annual" role="tab">Anual <span class="discount">−15%</span></button>
+          <div class="billing-toggle" id="billing-toggle" role="group" aria-label="Periodo de facturación">
+            <button type="button" data-period="monthly" class="active" aria-pressed="true">Mensual</button>
+            <button type="button" data-period="semester" aria-pressed="false">Semestre <span class="discount">−10%</span></button>
+            <button type="button" data-period="annual" aria-pressed="false">Anual <span class="discount">−15%</span></button>
           </div>
         </div>
 
