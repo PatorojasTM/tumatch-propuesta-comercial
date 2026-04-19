@@ -122,9 +122,30 @@
     render('monthly');
   }
 
+  // --- Theme toggle (dark / light) ---
+  function initThemeToggle() {
+    var root = document.documentElement;
+    var buttons = document.querySelectorAll('[data-theme-toggle]');
+    if (!buttons.length) return;
+    function setTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      try { localStorage.setItem('tm-theme', theme); } catch (e) { /* quota / private mode */ }
+      buttons.forEach(function (b) {
+        b.setAttribute('aria-label', theme === 'light' ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro');
+      });
+    }
+    buttons.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var current = root.getAttribute('data-theme') || 'dark';
+        setTheme(current === 'light' ? 'dark' : 'light');
+      });
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initCountdown();
     initRings();
     initBillingToggle();
+    initThemeToggle();
   });
 })();
