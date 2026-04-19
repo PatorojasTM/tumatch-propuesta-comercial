@@ -303,6 +303,26 @@ section[id], [id="main"] { scroll-margin-top: calc(var(--nav-h) + 16px); }
 .billing-toggle .discount { font-size: 0.7rem; padding: 1px 6px; border-radius: 999px; background: rgba(52, 211, 153, 0.2); color: var(--emerald); margin-left: 6px; }
 .billing-toggle button.active .discount { background: rgba(255, 255, 255, 0.25); color: white; }
 
+/* Special discount note below billing toggle */
+.special-discount-note {
+  display: inline-flex; flex-direction: column; align-items: center; gap: 6px;
+  margin: 22px auto 0;
+  padding: 12px 22px; border-radius: 16px;
+  background: linear-gradient(135deg, rgba(212, 160, 23, 0.15), rgba(232, 48, 122, 0.10));
+  border: 1px solid rgba(212, 160, 23, 0.35);
+  box-shadow: 0 8px 24px rgba(212, 160, 23, 0.12);
+  text-align: center;
+  max-width: 560px;
+}
+.special-discount-flag {
+  font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 700;
+  color: var(--gold); letter-spacing: 0.04em;
+}
+.special-discount-detail {
+  font-family: 'DM Sans', sans-serif; font-size: 0.78rem;
+  color: var(--fg-muted); line-height: 1.4;
+}
+
 /* ---------- PLAN UF (6 cards) ---------- */
 .plans-uf-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 40px; }
 .plan-uf {
@@ -335,6 +355,13 @@ section[id], [id="main"] { scroll-margin-top: calc(var(--nav-h) + 16px); }
 .plan-uf-props { font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: var(--fg-soft); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
 .plan-uf-price { font-family: 'DM Sans', sans-serif; font-size: 2.2rem; font-weight: 700; color: var(--fg); margin-top: 20px; font-variant-numeric: tabular-nums; line-height: 1; }
 .plan-uf-unit { font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: var(--fg-soft); margin-left: 6px; font-weight: 400; }
+.plan-uf-was {
+  font-family: 'DM Sans', sans-serif; font-size: 0.78rem;
+  color: var(--fg-soft); margin-top: 4px;
+  text-decoration: line-through; text-decoration-thickness: 1.5px;
+  text-decoration-color: rgba(232, 48, 122, 0.5);
+}
+.plan-uf-was:empty { display: none; }
 .plan-uf-clp { font-family: 'DM Sans', sans-serif; font-size: 0.8rem; color: var(--fg-soft); margin-top: 6px; }
 .plan-uf-savings { font-family: 'DM Sans', sans-serif; font-size: 0.78rem; color: var(--emerald); margin-top: 8px; font-weight: 600; min-height: 16px; }
 .plan-uf-cta {

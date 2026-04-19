@@ -96,15 +96,18 @@
       });
       document.querySelectorAll('.plan-uf').forEach(function (card) {
         var priceEl = card.querySelector('[data-price]');
+        var wasEl = card.querySelector('[data-was]');
         var clpEl = card.querySelector('[data-clp]');
         var savingsEl = card.querySelector('[data-savings]');
         var unitEl = card.querySelector('[data-unit]');
         var value = card.getAttribute('data-' + period) || '0';
+        var wasValue = card.getAttribute('data-' + period + '-was') || '';
         var savings = card.getAttribute('data-savings-' + period) || '';
         var ufValue = parseFloat(value.replace(',', '.')) || 0;
         var clpValue = Math.round(ufValue * UF_CLP);
         if (priceEl) priceEl.textContent = value;
         if (unitEl) unitEl.textContent = 'UF ' + periods[period].label;
+        if (wasEl) wasEl.textContent = wasValue ? 'antes UF ' + wasValue : '';
         if (clpEl) {
           var clpLabel = '≈ $' + clpValue.toLocaleString('es-CL') + ' CLP';
           if (period !== 'monthly') {
@@ -113,7 +116,7 @@
           }
           clpEl.textContent = clpLabel;
         }
-        if (savingsEl) savingsEl.textContent = savings ? 'Ahorras ' + savings + ' UF' : '';
+        if (savingsEl) savingsEl.textContent = savings ? 'Ahorras UF ' + savings + ' vs mensual' : '';
       });
     }
     buttons.forEach(function (b) {
