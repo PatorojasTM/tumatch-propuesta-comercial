@@ -105,7 +105,14 @@
         var clpValue = Math.round(ufValue * UF_CLP);
         if (priceEl) priceEl.textContent = value;
         if (unitEl) unitEl.textContent = 'UF ' + periods[period].label;
-        if (clpEl) clpEl.textContent = '≈ $' + clpValue.toLocaleString('es-CL') + ' CLP';
+        if (clpEl) {
+          var clpLabel = '≈ $' + clpValue.toLocaleString('es-CL') + ' CLP';
+          if (period !== 'monthly') {
+            var perMonth = Math.round(clpValue / periods[period].months).toLocaleString('es-CL');
+            clpLabel += ' total · $' + perMonth + '/mes';
+          }
+          clpEl.textContent = clpLabel;
+        }
         if (savingsEl) savingsEl.textContent = savings ? 'Ahorras ' + savings + ' UF' : '';
       });
     }
